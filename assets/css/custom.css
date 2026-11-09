@@ -1,6 +1,6 @@
 :root { color-scheme: light dark; --ink: #043361; --muted: #687581; --line: #e4e9ed; --soft: #f2f6f8; }
 html { scroll-behavior: smooth; scroll-padding-top: 30px; }
-body { font-family: "Crimson Pro", Georgia, serif; font-size: 17px; line-height: 1.65; }
+body { font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif; font-size: 17px; line-height: 1.65; }
 div.wrapper { width: min(1040px, calc(100% - 64px)); }
 header { width: 245px; padding-top: 76px; }
 main { width: 690px; float: right; padding: 70px 0 35px; }
@@ -14,7 +14,7 @@ p { margin: 0 0 15px; }
 .affiliation { font-size: 16px; margin-bottom: 5px; }
 .location { color: var(--muted); font-size: 15px; margin-bottom: 15px; }
 .email { font-family: system-ui, sans-serif; font-size: 13px; }
-.profile-links { display: flex; justify-content: center; gap: 12px; margin: 20px 0 25px; }
+.profile-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 20px 0 25px; }
 .profile-links a { border: 1px solid var(--line); border-radius: 4px; padding: 3px 13px; font-size: 15px; }
 nav { border-top: 1px solid var(--line); padding-top: 19px; display: grid; gap: 7px; }
 nav a { color: var(--muted); font-size: 16px; }
