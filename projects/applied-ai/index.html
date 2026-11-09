@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Applied AI Projects: YOLO, VLM Evaluation & LLM Extraction | Julia Zhu</title>
+  <meta name="description" content="Julia Zhu's selected AI internship work: YOLO11 vehicle detection, YOLO-World assisted labeling, VLM evaluation for 15 scenarios, and LoRA/QLoRA attribute extraction.">
+  <meta name="author" content="Julia Zhu">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+  <link rel="canonical" href="https://jiayizhu2004.github.io/projects/applied-ai/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Applied AI Projects | Julia Zhu">
+  <meta property="og:description" content="Vehicle detection, multimodal evaluation, and language-model extraction workflows from my AI internship.">
+  <meta property="og:url" content="https://jiayizhu2004.github.io/projects/applied-ai/">
+  <meta property="og:site_name" content="Julia Zhu">
+  <meta property="og:image" content="https://jiayizhu2004.github.io/assets/img/jiayi-zhu.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/minimal-light.css">
+  <link rel="stylesheet" href="../../assets/css/custom.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://jiayizhu2004.github.io/projects/applied-ai/#article",
+    "headline": "Applied AI: Detection, Multimodal Evaluation and LLM Extraction",
+    "description": "Selected implementation work from Julia Zhu's AI internship at Zhejiang Supcon Information.",
+    "url": "https://jiayizhu2004.github.io/projects/applied-ai/",
+    "mainEntityOfPage": "https://jiayizhu2004.github.io/projects/applied-ai/",
+    "author": { "@type": "Person", "@id": "https://jiayizhu2004.github.io/#person", "name": "Julia Zhu", "url": "https://jiayizhu2004.github.io/" },
+    "about": ["Computer vision", "Vision-language model evaluation", "Large language model fine-tuning"],
+    "inLanguage": "en"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="wrapper">
+    <header>
+      <img class="portrait" src="../../assets/img/jiayi-zhu.png" alt="Portrait of Julia Zhu" width="160" height="160">
+      <h1><a href="../../">Julia Zhu</a></h1>
+      <p class="position">Computer Science & Statistics</p>
+      <p class="affiliation">University of Wisconsin–Madison</p>
+      <p class="location">Madison, Wisconsin</p>
+      <a class="email" href="mailto:jzhu528@wisc.edu">jzhu528@wisc.edu</a>
+      <div class="profile-links">
+        <a href="../../assets/files/Julia-Zhu-Resume.pdf">Résumé ↗</a>
+        <a href="https://www.linkedin.com/in/041215-julia-zhu/" rel="me">LinkedIn ↗</a>
+        <a href="https://github.com/jiayizhu2004" rel="me">GitHub ↗</a>
+      </div>
+      <nav aria-label="Project sections">
+        <a href="../../">← About Julia</a>
+        <a href="#detection">Vehicle detection</a>
+        <a href="#multimodal">Multimodal evaluation</a>
+        <a href="#extraction">LLM extraction</a>
+        <a href="../../#publications">Publications</a>
+      </nav>
+    </header>
+    <main id="main" tabindex="-1">
+      <section>
+        <p class="eyebrow">SELECTED AI INTERNSHIP WORK · 2026</p>
+        <h2>Applied AI: From Detection to Structured Reasoning</h2>
+        <p>I am <strong>Julia Zhu</strong>, a Computer Science and Statistics undergraduate at <strong>UW–Madison</strong>. During my May–September 2026 AI algorithm internship at <a href="https://www.supconit.com/">Zhejiang Supcon Information (中控信息)</a>, I worked across three connected areas: vehicle detection, vision-language model evaluation, and language-model attribute extraction.</p>
+        <p>The common thread was building workflows that connect model inputs, evaluation, error diagnosis, and deployment. My work combined data preparation and model training with structured checks that make model behavior easier to inspect.</p>
+      </section>
+      <section id="detection">
+        <h2>1. Vehicle Detection & Assisted Labeling</h2>
+        <p class="meta">YOLO11 · YOLO-World · ONNX · Data quality</p>
+        <p><strong>Problem.</strong> A detection workflow needs consistent labels and class definitions as the range of target vehicles expands. Training, evaluation, and exported inference also need to use the same class mapping.</p>
+        <p><strong>Implementation.</strong> I built a YOLO11 pipeline covering dataset preparation, training, evaluation, and ONNX export, and expanded the label taxonomy from three to eight classes. To support annotation, I developed YOLO-World-assisted pre-labeling using class-specific text prompts and confidence controls.</p>
+        <p>The labeling workflow included two-stage non-maximum suppression and visual quality checks. I also worked on class remapping for continued training, connecting changes in the dataset to the model configuration rather than treating annotation and training as separate tasks.</p>
+        <p><strong>Evaluation approach.</strong> I used model evaluation alongside visual inspection of predictions and labels. This helped distinguish class-definition and annotation problems from model errors before carrying changes into the next training run.</p>
+      </section>
+      <section id="multimodal">
+        <h2>2. Multimodal Scenario Evaluation</h2>
+        <p class="meta">Vision-language models · Prompt engineering · Error analysis</p>
+        <p><strong>Problem.</strong> Traffic and municipal images can contain ambiguous evidence. A plausible model explanation is not enough to establish that a specific event has actually occurred.</p>
+        <p><strong>Implementation.</strong> I developed prompts and an automated evaluation framework for <strong>15 traffic and municipal scenarios</strong>. The workflow combined initial routing with more detailed verification, using structured outputs and programmatic consistency checks to make decisions inspectable.</p>
+        <p>I iterated on staged evidence checks and reverse-review prompts, then examined false-positive cases to understand where the model had inferred more than the image supported. Routing and targeted verification also provided a way to avoid redundant calls to the model.</p>
+        <p><strong>Evaluation approach.</strong> I organized error analysis by scenario and decision stage, so prompt revisions could be tied to identifiable failure cases rather than judged only from a few convincing examples.</p>
+      </section>
+      <section id="extraction">
+        <h2>3. Language-Model Attribute Extraction</h2>
+        <p class="meta">CCKS2026 · LoRA/QLoRA · vLLM · Structured extraction</p>
+        <p><strong>Problem.</strong> Attribute extraction requires a model to convert text into a consistent output schema. Errors may arise from the extraction instruction, the model configuration, or disagreements in how a rule is interpreted.</p>
+        <p><strong>Implementation.</strong> For CCKS2026 extraction workflows, I iterated on prompt engineering, LoRA/QLoRA fine-tuning, and vLLM inference. I compared model configurations and kept error analyses to guide subsequent revisions.</p>
+        <p><strong>Evaluation approach.</strong> I examined incorrect and inconsistent outputs across configurations, using those cases to separate prompt-related issues from behavior that required a different training or inference setup.</p>
+      </section>
+      <section>
+        <h2>Related Research & Contact</h2>
+        <p>My broader interests include computer vision, multimodal reasoning, and statistical modeling. I am also a co-author of <a href="https://openreview.net/forum?id=60wA5w8i5L">MARS2 2026 Challenge on Multimodal Reasoning: From Multimodal Perception to Complex Reasoning</a>.</p>
+        <p><a href="../../assets/files/Julia-Zhu-Resume.pdf">Read my résumé</a> · <a href="https://openreview.net/profile?id=~Julia_Zhu4" rel="me">OpenReview publication record</a> · <a href="https://www.linkedin.com/in/041215-julia-zhu/" rel="me">LinkedIn</a></p>
+      </section>
+      <div class="page-footer">© Julia Zhu · <a href="../../">Back to homepage</a></div>
+    </main>
+  </div>
+</body>
+</html>
